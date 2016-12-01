@@ -1,0 +1,23 @@
+//*******MIXINS FILE
+// -- Equal Spaced Columns -- //
+// Number of Columns - First Column
+// Remaining Number of Columns * Margin Spacing
+// Container Width - Total Margin Spacing
+// Remaining Width / Total Number of Columns
+@mixin equalSpaced( $num_of_cols, $gutter, $width:100%) {
+    width: ( $width - ( $gutter * ($num_of_cols - 1))) / $num_of_cols;
+    margin-left: $gutter;
+    float: left;
+    // Remove Spacing from First Child
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+@mixin breakpoint($size) {
+    @media #{$size} {
+        @content;
+    }
+}
+
+//A mixin is function an breakpoint seperating the different outlays of Css the queries file has all of the names, sizes and content of the layouts
